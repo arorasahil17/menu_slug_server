@@ -8,10 +8,10 @@ const path = require("path");
 
 connectDb();
 
-app.use(express.static(path.resolve(__dirname, "dist")));
 app.use(cors());
 app.use(express.json());
 app.use("/api", menuRouter);
+app.use(express.static(path.resolve(__dirname, "dist")));
 app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "dist", "index.html"))
 );
